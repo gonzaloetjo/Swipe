@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_30_163602) do
+ActiveRecord::Schema.define(version: 2020_01_30_192746) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,11 +21,6 @@ ActiveRecord::Schema.define(version: 2020_01_30_163602) do
     t.integer "id_parent"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "categories_users", id: false, force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "category_id", null: false
   end
 
   create_table "favorites", force: :cascade do |t|
@@ -58,9 +53,8 @@ ActiveRecord::Schema.define(version: 2020_01_30_163602) do
   end
 
   create_table "products", force: :cascade do |t|
-    t.string "product_name"
-    t.string "product_description"
-    t.string "product_photos"
+    t.string "name"
+    t.string "description"
     t.string "state"
     t.integer "quantity_per_unit"
     t.datetime "created_at", null: false
@@ -91,6 +85,13 @@ ActiveRecord::Schema.define(version: 2020_01_30_163602) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "users_categories", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "category_id"
+    t.index ["category_id"], name: "index_users_categories_on_category_id"
+    t.index ["user_id"], name: "index_users_categories_on_user_id"
+  end
+
   add_foreign_key "favorites", "products"
   add_foreign_key "favorites", "users"
   add_foreign_key "messages", "offers"
@@ -98,4 +99,6 @@ ActiveRecord::Schema.define(version: 2020_01_30_163602) do
   add_foreign_key "offers", "users"
   add_foreign_key "products", "categories"
   add_foreign_key "products", "users"
+  add_foreign_key "users_categories", "categories"
+  add_foreign_key "users_categories", "users"
 end
