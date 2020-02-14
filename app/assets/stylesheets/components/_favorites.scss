@@ -1,0 +1,21 @@
+.favorite-tile {
+  width: 100px;
+  height: 100px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  cursor: pointer;
+  position: relative;
+
+  p {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    color: white;
+    margin: 0;
+    font-weight: bold;
+    line-height: 1;
+
+  }
+}
+
+

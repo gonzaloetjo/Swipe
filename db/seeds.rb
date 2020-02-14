@@ -17,9 +17,9 @@ Faker::Config.locale = :fr
 last_id_category = Category.maximum(:id).to_i
 puts last_id_category
 
+Favorite.destroy_all
 Product.destroy_all
 Category.destroy_all
-Favorite.destroy_all
 Message.destroy_all
 Offer.destroy_all
 Rating.destroy_all
@@ -33,11 +33,11 @@ parent_a = Category.new( name: "Collectibles & art", id_parent: nil)
 parent_a.save!
 b = Category.new( name: "Collectibles", id_parent:parent_a.id)
 b.save!
-b = Category.new( name: "Coins & paper money", id_parent:parent_a.id)
+b = Category.new( name: "Strange", id_parent:parent_a.id)
 b.save!
 b = Category.new( name: "Antiques", id_parent:parent_a.id)
 b.save!
-b = Category.new( name: "Sports memorabilianame", id_parent:parent_a.id)
+b = Category.new( name: "Sports", id_parent:parent_a.id)
 b.save!
 
 parent_b = Category.new( name: "Electronics", id_parent:nil)
@@ -51,7 +51,7 @@ b.save!
 b = Category.new( name: "Cell phones & accessoriesname", id_parent:parent_b.id)
 b.save!
 
-parent_c = Category.new( name: "Entertainment memorabilia", id_parent:nil)
+parent_c = Category.new( name: "Entertainment", id_parent:nil)
 parent_c.save!
 b = Category.new( name: "Video games & consoles", id_parent:parent_c.id)
 b.save!
@@ -59,7 +59,7 @@ b = Category.new( name: "Music", id_parent:parent_c.id)
 b.save!
 b = Category.new( name: "DVDs & movies", id_parent:parent_c.id)
 b.save!
-b = Category.new( name: "Tickets & experiencesname", id_parent:parent_c.id)
+b = Category.new( name: "Tickets", id_parent:parent_c.id)
 b.save!
 
 parent_d = Category.new( name: "Fashion", id_parent:nil)
@@ -75,7 +75,7 @@ b.save!
 
 parent_e = Category.new( name: "Home & garden", id_parent:nil)
 parent_e.save!
-b = Category.new( name: "Yard, garden & outdoor", id_parent:parent_e.id)
+b = Category.new( name: "Garden & outdoor", id_parent:parent_e.id)
 b.save!
 b = Category.new( name: "Crafts", id_parent:parent_e.id)
 b.save!
@@ -108,7 +108,7 @@ b.save!
 
 parent_h = Category.new( name: "Toys & hobbies", id_parent:nil)
 parent_h.save!
-b = Category.new( name: "Vintage & antique toys", id_parent:parent_h.id)
+b = Category.new( name: "Vintage & Antiques", id_parent:parent_h.id)
 b.save!
 b = Category.new( name: "Kids toys", id_parent:parent_h.id)
 b.save!
@@ -123,7 +123,7 @@ b = Category.new( name: "Books", id_parent:parent_i.id)
 b.save!
 b = Category.new( name: "Health & beauty", id_parent:parent_i.id)
 b.save!
-b = Category.new( name: "Musical instruments & gear", id_parent:parent_i.id)
+b = Category.new( name: "Music instruments", id_parent:parent_i.id)
 b.save!
 b = Category.new( name: "Business & industrial", id_parent:parent_i.id)
 b.save!
@@ -131,8 +131,8 @@ b.save!
 puts Category.all
 
 
-
 20.times do |index|
+  file = URI.open(pictures[index])
   #file = URI.open(pictures[index])
   #p file
 
@@ -172,15 +172,27 @@ puts Category.all
     user_id: a.id,
     category_id: new_id_1
     )
+  c.images.attach(io: file, filename: "nes-#{index}.png", content_type: 'image/png')
+
   c.save!
 
-  d = Product.new(
-    name: new_name_2,
-    user_id: a.id,
-    category_id: new_id_2
-    )
-
-  d.save!
+  #d = Product.new(
+  #  name: new_name_2,
+  #  user_id: a.id,
+  #  category_id: new_id_2
+  #  )
+  #d.save!
 
 end
+
+
+e = User.new(
+  email:"gonzalo@gmail.com",
+  password:"123456",
+  first_name:"Gonzalo",
+  last_name:"Etse",
+  birthday:"1987-01-14"
+  )
+e.save!
+
 
