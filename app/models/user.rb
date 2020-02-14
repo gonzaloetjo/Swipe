@@ -11,4 +11,8 @@ class User < ApplicationRecord
   has_many :categories_users
 
   has_one_attached :avatar
+
+  def favorites
+    @favorites = Favorite.where(user_id: current_user.id).map(&:product_id)
+  end
 end

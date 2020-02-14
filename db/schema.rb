@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_30_193417) do
+ActiveRecord::Schema.define(version: 2020_02_06_194817) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,6 +42,8 @@ ActiveRecord::Schema.define(version: 2020_01_30_193417) do
     t.integer "id_parent"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "mother_category_id"
+    t.index ["mother_category_id"], name: "index_categories_on_mother_category_id"
   end
 
   create_table "favorites", force: :cascade do |t|
@@ -62,6 +64,11 @@ ActiveRecord::Schema.define(version: 2020_01_30_193417) do
     t.integer "sending_user_id"
     t.bigint "offer_id"
     t.index ["offer_id"], name: "index_messages_on_offer_id"
+  end
+
+  create_table "mother_categories", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "offers", force: :cascade do |t|

@@ -11,6 +11,7 @@ gem 'redis'
 gem 'faker'
 gem 'bootstrap-multiselect_rails', '~> 0.9.4'
 gem "aws-sdk-s3", require: false
+gem 'jquery-rails'
 
 
 
@@ -20,6 +21,8 @@ gem 'sassc-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
+gem 'ajax-datatables-rails'
+
 
 
 group :development do

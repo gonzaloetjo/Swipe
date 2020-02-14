@@ -13,3 +13,12 @@ for (i = 0; i < dropdown.length; i++) {
     }
   });
 }
+
+//var parent = document.getElementsByClassName("parent");
+//parent.forEach(element => element.addEventListener("click", function() {
+//  console.log('quelqu')
+
+//}));
+
+
+
