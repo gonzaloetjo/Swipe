@@ -3,28 +3,28 @@
     <div class="row">
       <div class="sidenav"><form>
         <%= simple_form_for @mother_category, url: create_path do |f| %>
-            <% Category.all.each do |x|%>
-              <% if x.id_parent == nil %>
-                <button class="dropdown-btn parent">
-                  <input type="checkbox" name="groups">
-                    <%= x.name %>
-                    <i class="fa fa-caret-down"></i>
-                  </input>
-                </button>
-                <div class="dropdown-container">
-                  <%  Category.all.each do |y| %>
-                    <% if y.id_parent == x.id %>
-                      <a href="#">
-                        <input type="checkbox" name="subgroups">  <%= y.name %> </input>
-                      </a>
-                    <% end %>
-                  <% end %>
-                </div>
-              <% end %>
-            <% end %>
+        <% Category.all.each do |x|%>
+        <% if x.id_parent == nil %>
+        <button class="dropdown-btn parent">
+          <input type="checkbox" name="groups">
+          <%= x.name %>
+          <i class="fa fa-caret-down"></i>
+        </input>
+      </button>
+      <div class="dropdown-container">
+        <%  Category.all.each do |y| %>
+        <% if y.id_parent == x.id %>
+        <a href="#">
+          <input type="checkbox" name="subgroups">  <%= y.name %> </input>
+        </a>
+        <% end %>
         <% end %>
       </div>
+      <% end %>
+      <% end %>
+      <% end %>
     </div>
+  </div>
 </body>
 
 

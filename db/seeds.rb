@@ -29,109 +29,109 @@ pictures = ["https://images.unsplash.com/photo-1573516515928-92444ec46ce2?ixlib=
 
 
  ## create categories tree, not using a loop nor faker as it's a static list
-parent_a = Category.new( name: "Collectibles & art", id_parent: nil)
-parent_a.save!
-b = Category.new( name: "Collectibles", id_parent:parent_a.id)
-b.save!
-b = Category.new( name: "Strange", id_parent:parent_a.id)
-b.save!
-b = Category.new( name: "Antiques", id_parent:parent_a.id)
-b.save!
-b = Category.new( name: "Sports", id_parent:parent_a.id)
-b.save!
+ parent_a = Category.new( name: "Collectibles & art", id_parent: nil)
+ parent_a.save!
+ b = Category.new( name: "Collectibles", id_parent:parent_a.id)
+ b.save!
+ b = Category.new( name: "Strange", id_parent:parent_a.id)
+ b.save!
+ b = Category.new( name: "Antiques", id_parent:parent_a.id)
+ b.save!
+ b = Category.new( name: "Sports", id_parent:parent_a.id)
+ b.save!
 
-parent_b = Category.new( name: "Electronics", id_parent:nil)
-parent_b.save!
-b = Category.new( name: "Computers & tablets", id_parent:parent_b.id)
-b.save!
-b = Category.new( name: "Cameras & photo", id_parent:parent_b.id)
-b.save!
-b = Category.new( name: "TV, audio & surveillance", id_parent:parent_b.id)
-b.save!
-b = Category.new( name: "Cell phones & accessoriesname", id_parent:parent_b.id)
-b.save!
+ parent_b = Category.new( name: "Electronics", id_parent:nil)
+ parent_b.save!
+ b = Category.new( name: "Computers & tablets", id_parent:parent_b.id)
+ b.save!
+ b = Category.new( name: "Cameras & photo", id_parent:parent_b.id)
+ b.save!
+ b = Category.new( name: "TV, audio & surveillance", id_parent:parent_b.id)
+ b.save!
+ b = Category.new( name: "Cell phones & accessoriesname", id_parent:parent_b.id)
+ b.save!
 
-parent_c = Category.new( name: "Entertainment", id_parent:nil)
-parent_c.save!
-b = Category.new( name: "Video games & consoles", id_parent:parent_c.id)
-b.save!
-b = Category.new( name: "Music", id_parent:parent_c.id)
-b.save!
-b = Category.new( name: "DVDs & movies", id_parent:parent_c.id)
-b.save!
-b = Category.new( name: "Tickets", id_parent:parent_c.id)
-b.save!
+ parent_c = Category.new( name: "Entertainment", id_parent:nil)
+ parent_c.save!
+ b = Category.new( name: "Video games & consoles", id_parent:parent_c.id)
+ b.save!
+ b = Category.new( name: "Music", id_parent:parent_c.id)
+ b.save!
+ b = Category.new( name: "DVDs & movies", id_parent:parent_c.id)
+ b.save!
+ b = Category.new( name: "Tickets", id_parent:parent_c.id)
+ b.save!
 
-parent_d = Category.new( name: "Fashion", id_parent:nil)
-parent_d.save!
-b = Category.new( name: "Women", id_parent:parent_d.id)
-b.save!
-b = Category.new( name: "Men", id_parent:parent_d.id)
-b.save!
-b = Category.new( name: "Watches", id_parent:parent_d.id)
-b.save!
-b = Category.new( name: "Shoes", id_parent:parent_d.id)
-b.save!
+ parent_d = Category.new( name: "Fashion", id_parent:nil)
+ parent_d.save!
+ b = Category.new( name: "Women", id_parent:parent_d.id)
+ b.save!
+ b = Category.new( name: "Men", id_parent:parent_d.id)
+ b.save!
+ b = Category.new( name: "Watches", id_parent:parent_d.id)
+ b.save!
+ b = Category.new( name: "Shoes", id_parent:parent_d.id)
+ b.save!
 
-parent_e = Category.new( name: "Home & garden", id_parent:nil)
-parent_e.save!
-b = Category.new( name: "Garden & outdoor", id_parent:parent_e.id)
-b.save!
-b = Category.new( name: "Crafts", id_parent:parent_e.id)
-b.save!
-b = Category.new( name: "Home improvement", id_parent:parent_e.id)
-b.save!
-b = Category.new( name: "Furniture", id_parent:parent_e.id)
-b.save!
+ parent_e = Category.new( name: "Home & garden", id_parent:nil)
+ parent_e.save!
+ b = Category.new( name: "Garden & outdoor", id_parent:parent_e.id)
+ b.save!
+ b = Category.new( name: "Crafts", id_parent:parent_e.id)
+ b.save!
+ b = Category.new( name: "Home improvement", id_parent:parent_e.id)
+ b.save!
+ b = Category.new( name: "Furniture", id_parent:parent_e.id)
+ b.save!
 
-parent_f = Category.new( name: "Motors", id_parent:nil)
-parent_f.save!
-b = Category.new( name: "Parts  ", id_parent:parent_f.id)
-b.save!
-b = Category.new( name: "Cars & trucks", id_parent:parent_f.id)
-b.save!
-b = Category.new( name: "Motorcycles", id_parent:parent_f.id)
-b.save!
-b = Category.new( name: "Passenger vehicles", id_parent:parent_f.id)
-b.save!
+ parent_f = Category.new( name: "Motors", id_parent:nil)
+ parent_f.save!
+ b = Category.new( name: "Parts  ", id_parent:parent_f.id)
+ b.save!
+ b = Category.new( name: "Cars & trucks", id_parent:parent_f.id)
+ b.save!
+ b = Category.new( name: "Motorcycles", id_parent:parent_f.id)
+ b.save!
+ b = Category.new( name: "Passenger vehicles", id_parent:parent_f.id)
+ b.save!
 
-parent_g = Category.new( name: "Sporting goods", id_parent:nil)
-parent_g.save!
-b = Category.new( name: "Outdoor sports", id_parent:parent_g.id)
-b.save!
-b = Category.new( name: "Team sports", id_parent: parent_g.id)
-b.save!
-b = Category.new( name: "Exercise & fitness", id_parent:parent_g.id)
-b.save!
-b = Category.new( name: "Golf ", id_parent:parent_g.id)
-b.save!
+ parent_g = Category.new( name: "Sporting goods", id_parent:nil)
+ parent_g.save!
+ b = Category.new( name: "Outdoor sports", id_parent:parent_g.id)
+ b.save!
+ b = Category.new( name: "Team sports", id_parent: parent_g.id)
+ b.save!
+ b = Category.new( name: "Exercise & fitness", id_parent:parent_g.id)
+ b.save!
+ b = Category.new( name: "Golf ", id_parent:parent_g.id)
+ b.save!
 
-parent_h = Category.new( name: "Toys & hobbies", id_parent:nil)
-parent_h.save!
-b = Category.new( name: "Vintage & Antiques", id_parent:parent_h.id)
-b.save!
-b = Category.new( name: "Kids toys", id_parent:parent_h.id)
-b.save!
-b = Category.new( name: "Action figures", id_parent:parent_h.id)
-b.save!
-b = Category.new( name: "Dolls & bears", id_parent:parent_h.id)
-b.save!
+ parent_h = Category.new( name: "Toys & hobbies", id_parent:nil)
+ parent_h.save!
+ b = Category.new( name: "Vintage & Antiques", id_parent:parent_h.id)
+ b.save!
+ b = Category.new( name: "Kids toys", id_parent:parent_h.id)
+ b.save!
+ b = Category.new( name: "Action figures", id_parent:parent_h.id)
+ b.save!
+ b = Category.new( name: "Dolls & bears", id_parent:parent_h.id)
+ b.save!
 
-parent_i = Category.new( name: "Other categories", id_parent: nil)
-parent_i.save!
-b = Category.new( name: "Books", id_parent:parent_i.id)
-b.save!
-b = Category.new( name: "Health & beauty", id_parent:parent_i.id)
-b.save!
-b = Category.new( name: "Music instruments", id_parent:parent_i.id)
-b.save!
-b = Category.new( name: "Business & industrial", id_parent:parent_i.id)
-b.save!
+ parent_i = Category.new( name: "Other categories", id_parent: nil)
+ parent_i.save!
+ b = Category.new( name: "Books", id_parent:parent_i.id)
+ b.save!
+ b = Category.new( name: "Health & beauty", id_parent:parent_i.id)
+ b.save!
+ b = Category.new( name: "Music instruments", id_parent:parent_i.id)
+ b.save!
+ b = Category.new( name: "Business & industrial", id_parent:parent_i.id)
+ b.save!
 
-puts Category.all
+ puts Category.all
 
 
-20.times do |index|
+ 20.times do |index|
   file = URI.open(pictures[index])
   #file = URI.open(pictures[index])
   #p file

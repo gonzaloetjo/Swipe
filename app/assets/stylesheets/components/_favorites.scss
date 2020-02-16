@@ -1,10 +1,13 @@
-.favorite-tile {
-  width: 100px;
-  height: 100px;
+.favorite-element {
+  width: 95px;
+  height: 95px;
   background-repeat: no-repeat;
   background-size: cover;
   cursor: pointer;
   position: relative;
+  border-radius: 15px;
+  margin:5px;
+
 
   p {
     position: absolute;
@@ -17,5 +20,10 @@
 
   }
 }
-
+.favorites-row {
+  display:flex;
+  justify-content:center;
+  margin-bottom: 70px;
+  padding:5px;
+}
 

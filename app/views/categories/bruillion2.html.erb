@@ -1,4 +1,4 @@
 <%= simple_form_for @mother_category, url: create_path do |f| %>
-  <%= f.association :categories, collection: Category.all, input_html: { multiple: true }%>
-  <%= f.button :submit %>
+<%= f.association :categories, collection: Category.all, input_html: { multiple: true }%>
+<%= f.button :submit %>
 <% end %>

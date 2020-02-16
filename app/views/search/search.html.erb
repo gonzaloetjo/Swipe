@@ -1,23 +1,20 @@
-<div class="container">
+<div class="search">
   <div class="row">
-    <div class="col-3 col-md-4">
-      <%= render "favorites/favorites" %>
-    </div>
-    <div class="col-3 col-md-4">
+    <div class="col-12 col-md-12 slides">
       <ul id="slides">
         <% @products.each_with_index do |product, i| %>
-          <li class="slide <%= 'showing' if i == 0 %>" data-id="<%= product.id %>">
-            <% if product.images.attached? %>
-              <div class="image-carousel" style="background-image: linear-gradient(
-                  rgba(0, 0, 0, 0.3),
-                  rgba(0, 0, 0, 0.3)),
-                  url('<%= url_for product.images.first %>')">
-              </div>
-            <% end %>
-            <span class="product-name"><%= product.name %></span>
-            <span class="product-category"><i class="fas fa-angle-double-right"></i>  <%= product.category.name %></span>
-            <span class="product-category"><i class="fas fa-user"></i>   <%= product.user.first_name %></span>
-          </li>
+        <li class="slide <%= 'showing' if i == 0 %>" data-id="<%= product.id %>">
+          <% if product.images.attached? %>
+          <div class="image-carousel" style="background-image: linear-gradient(
+            rgba(0, 0, 0, 0.3),
+            rgba(0, 0, 0, 0.3)),
+            url('<%= url_for product.images.first %>')">
+          </div>
+          <% end %>
+          <span class="product-name"><%= product.name %></span>
+          <span class="product-category"><i class="fas fa-angle-double-right"></i>  <%= product.category.name %></span>
+          <span class="product-category"><i class="fas fa-user"></i>   <%= product.user.first_name %></span>
+        </li>
         <% end %>
       </ul>
       <div class="slides-buttons">
@@ -25,6 +22,9 @@
         <span id="approve"><i class="fa fa-heart fa-2x"></i></span>
       </div>
     </div>
+  </div>
+  <div class="row favorites-row">
+    <%= render "favorites/favorites" %>
   </div>
 </div>
 
