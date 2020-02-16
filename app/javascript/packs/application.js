@@ -1,2 +1,2 @@
 import "bootstrap";
-require("../includes/slides.js")
+require("../includes/search.js")

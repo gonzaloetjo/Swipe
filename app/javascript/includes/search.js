@@ -1,6 +1,11 @@
 $(function(){
   var $activeSlide = $('#slides .slide:first-child');
 
+
+  $(".favorite-tile").on("click", function(){
+    var product_id = $(this).data("id");
+    console.log( product_id );
+  })
   // $activeSlide.addClass("showing");
 
   $("#decline").on("click",function(){

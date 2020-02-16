@@ -1,5 +1,5 @@
     <% @favorites.each_with_index do |favorite, index| %>
-      <div class="col-sm-4">
+      <div class="col-sm-4 mt-3">
           <div class="favorite-tile rounded" style="background-image: linear-gradient(
                 rgba(0, 0, 0, 0.3),
                 rgba(0, 0, 0, 0.3)), url('<%= url_for favorite.product.images.first %>')">
