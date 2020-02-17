@@ -1,48 +1,27 @@
 class OffersController < ApplicationController
-  def create
-    @product = Product.find(params[:product_id])
-    @offer = Offer.new
-    @offer.start_date = params[:offer][:start_date].split('to') [0]
-    if params[:offer][:start_date].split(' to ') [1].nil?
-    @offer.end_date = params[:offer][:start_date].split('to') [0]
-    else
-    @offer.end_date = params[:offer][:start_date].split(' to ') [1]
-    end
 
+  def index
+    @offer = Offer.all
+  end
+
+  def new
+  end
+
+  def create
+    @product = Product.find(params[:id])
+    @offer = Offer.new
     @offer.user = current_user
     @offer.product = @product
 
-    if @offer.save
-      redirect_to offer_path(@offer), notice: 'Your offer has been made'
-    else
-      render 'products/show'
-    end
+    #if @offer.save
+    #  redirect_to offer_path(@chat), notice: 'Your offer has been made'
+    #else
+    #  render 'search'
+    #end
   end
 
   def show
     @offer = Offer.find(params[:id])
-    @product = @offer.product
-    authorize @product
-  end
-
-def index
-  @offers = policy_scope(offer).all
-  @myoffers = current_user.offers
-end
-
-def edit
-  @offer = Offer.find(params[:id])
-end
-
-def destroy
-  @offer = Offer.find(params[:id])
-  @offer.destroy
-  redirect_to offers_path
-end
-
-  private
-
-  def offer_params
-    params.require(:offer).permit(:start_date, :end_date)
+    @product = @offer.new
   end
 end

@@ -16,6 +16,16 @@ class SearchController < ApplicationController
     end
   end
 
+  def offer
+    logger.debug "Product id #{params[:id]}"
+    product_id = params[:id]
+    new_offer = Offer.new(product_id: product_id)
+    new_offer.user_id = current_user.id
+    if new_favorite.save
+      existing_favorite = Offer.where(product_id: product_id, user_id: current_user.id).count
+    end
+  end
+
   def decline
 
 
