@@ -5,51 +5,60 @@ class OffersController < ApplicationController
   end
 
   def create
+    logger.debug "params:"
+    logger.debug "#{@offer_params}"
     @offer = Offer.new(offer_params)
     @offer.user_id = current_user.id
-    @offer.messages.user_id = current_user.id
-
-    if @offer.save
-      offer[:user_id] = current_user.id
-      flash[:success] = "New User created."
-      redirect_to '/offer/chat' + product_id
+    @offer.messages.first.user_id = current_user.id
+    if @offer.save!
       logger.debug "saved"
-
     else
       logger.debug "not saved"
     end
   end
 
+  def update
+    @offer = Offer.find(params[:id])
+    logger.debug "#{offer_params}"
+
+    respond_to do |format|
+      format.js {
+        if @offer.update(offer_params)
+            @messages = @offer.messages
+            render "offers/chat_messages"
+        else
+
+        end
+      }
+    end
+  end
+
+
   def chat
+    id = params[:id].to_i
     @user = current_user
     @products = Product.all
     @product = Product.find(params[:id])
-    @offer = Offer.new(product_id: params[:id], user_id: current_user.id)
-    @offer.save
-    @message = @offer.messages.build
-    logger.debug(params[:id])
-    if @offer.save
-    logger.debug "saved"
 
-    #redirect_to offer_path(@chat), notice: 'Your offer has been made'
-    logger.debug "path finished"
+    #offer = Offer.between(id, current_user.id)
+    offer = Offer.where(product_id: id, user_id: current_user.id).count
+    offer2 = Offer.where(product_id: id, user_id: current_user.id)
+    #logger.debug "#{offer}"
+    if offer > 0
+      @offer = offer2.first
     else
-      logger.debug "not saved"
-
-    #else
-    #  render 'search'
+      @offer = Offer.new(product_id: id, user_id: current_user.id)
+      @offer.save
     end
-  end
 
-  def show
-    @offer = Offer.find(params[:id])
-    @product = @offer.new
+
+    @message = @offer.messages.build
   end
 
   private
 
 
   def offer_params
-    params.permit(:pruduct_id, messages_attributes: [:message_content, :user_id, :product_id])
+    params.require(:offer).permit(:product_id, :user_id, messages_attributes: [:message_content, :user_id, :product_id])
   end
 end

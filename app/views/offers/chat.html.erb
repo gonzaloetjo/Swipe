@@ -1,31 +1,26 @@
 
-  <div id="offer">
-    <div class="row">
-      <div class="col-12 top-bar">
-          <%= link_to image_tag(@products.last.images.first, width: "40px", height: "40px", class:"float-left profile-thumb rounded-circle mr-3")%>
-          <span> <%= @user.first_name%></span>
-      </div>
+<div id="offer">
+  <div class="row">
+    <div class="col-12 top-bar">
+      <%= link_to image_tag(@products.last.images.first, width: "40px", height: "40px", class:"float-left profile-thumb rounded-circle mr-3")%>
+      <span> <%= @user.first_name%></span>
     </div>
-    <div class="row">
-      <div class="col-12 text-center">
+  </div>
+  <div class="row">
+    <div class="col-12 text-center">
+      <div id="new-chat">
         <p>You started an offer with <span> <%= @product.user.first_name %> </span> </p>
-        <%= link_to image_tag(@product.images.first, width: "200px", height: "200px", class:"rounded-circle")%>
+        <%= link_to image_tag(@product.images.first, width: "100px", height: "100px", class:"rounded-circle")%>
         <P>Send a message</p>
-      </div>
-    </div>
-      <div class="row">
-        <div class="col-12 mt-5 bottom-bar">
-          <%= form_with model: @offer do |form| %>
-            <%= form.hidden_field :product_id, value: @product.id %>
-            <div class="input-group">
-              <%= form.fields_for :messages, @message do |message_form| %>
-                <%= message_form.text_field :message_content, placeholder: "Send your offer!", class:"form-control form-control-lg" %>
-              <% end %>
-              <div class="input-group-append">
-                <input type="submit" name="submit" value="send" class="btn btn-black">
-              </div>
-            </div>
-          <% end %>
+        </div>
+        <div id="chat_messages">
         </div>
       </div>
+    </div>
+    <div class="row">
+      <div class="col-12 mt-5 bottom-bar">
+        <%= render partial: "offers/new_chat" %>
+      </div>
+    </div>
   </div>
+</div>
