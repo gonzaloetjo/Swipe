@@ -12,7 +12,7 @@ class OffersController < ApplicationController
     if @offer.save
       offer[:user_id] = current_user.id
       flash[:success] = "New User created."
-      redirect_to '/offer/chatt' + product_id
+      redirect_to '/offer/chat' + product_id
       logger.debug "saved"
 
     else
@@ -24,13 +24,14 @@ class OffersController < ApplicationController
     @user = current_user
     @products = Product.all
     @product = Product.find(params[:id])
-    @offer = Offer.new(offer_params)
+    @offer = Offer.new(product_id: params[:id], user_id: current_user.id)
+    @offer.save
     @message = @offer.messages.build
     logger.debug(params[:id])
     if @offer.save
     logger.debug "saved"
 
-     redirect_to offer_path(@chat), notice: 'Your offer has been made'
+    #redirect_to offer_path(@chat), notice: 'Your offer has been made'
     logger.debug "path finished"
     else
       logger.debug "not saved"
