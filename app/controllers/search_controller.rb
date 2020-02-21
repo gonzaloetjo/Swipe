@@ -22,6 +22,8 @@ class SearchController < ApplicationController
     @id = params[:id]
     @user = current_user
     @product = Product.find(id)
+    #@offer = Offer.new(product_id: params[:id], user_id: current_user.id)
+
 
     if @product.present?
       respond_to do |format|
