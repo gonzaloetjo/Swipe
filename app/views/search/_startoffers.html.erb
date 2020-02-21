@@ -1,0 +1,39 @@
+  <div class="row">
+    <div class="col-12 top-bar">
+      <i class="fa fa-times fa-2x text-muted float-righ" id="close-offer"></i>
+      <h2>Make your offer</h2>
+    </div>
+    <div class="row">
+      <h4>What you want</h4>
+    </div>
+    <div class="row">
+      <div class="col">
+        <img id="product-image" class="img-fluid" src="<%= url_for @product.images.first %>">
+      </div>
+
+      <div class="col">
+          <div class="row">
+          <div class="row align-items-start">
+            <div>
+              <%= @product.description%>
+              </div>
+            <div>
+              <span id="share"><i class="fa fa-share fa-2x"></i></span>
+              <span id="approve"><i class="fa fa-star fa-2x"></i></span>
+            </div>
+          </div>
+          <div class="row user-info align-items-end">
+            <div class="row">
+              <h5><%= @product.user.first_name %> <%= @product.user.last_name %></h5>
+            </div>
+            <div class="row">
+             <p>@<%= @product.user.first_name %>_<%= @product.user.last_name %></p>
+           </div>
+         </div>
+      </div>
+      </div>
+    </div class="btn-success">
+    <a id="oneclick">Click Here</a>
+    </div>
+</div>
+</div>
