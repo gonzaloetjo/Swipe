@@ -31,6 +31,8 @@ $(function(){
   $("#offer").on("click",function(){
     var product_id = $activeSlide.data("id");
     console.log(product_id);
+      $("#search").hide();
+  console.log('hecho');
     // window.location.href = "/offers/create/" + product_id;
     $.ajax({
         headers: {

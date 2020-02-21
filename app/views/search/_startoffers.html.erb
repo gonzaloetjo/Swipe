@@ -1,39 +1,77 @@
+<div id="offer-popup">
   <div class="row">
     <div class="col-12 top-bar">
-      <i class="fa fa-times fa-2x text-muted float-righ" id="close-offer"></i>
-      <h2>Make your offer</h2>
+      <div class="row">
+
+        <h2 class="mx-auto">Make your offer</h2>
+        <i class="fa fa-times fa-2x text-muted float-right" id="close-offer"></i>
+
+      </div>
     </div>
+    <h5 >What you want</h5>
     <div class="row">
-      <h4>What you want</h4>
-    </div>
-    <div class="row">
-      <div class="col">
+      <div class="col-6">
         <img id="product-image" class="img-fluid" src="<%= url_for @product.images.first %>">
       </div>
 
-      <div class="col">
-          <div class="row">
-          <div class="row align-items-start">
-            <div>
-              <%= @product.description%>
-              </div>
-            <div>
+      <div class="col-6">
+        <div class="row">
+          <div class="row user-info">
+            <div class="card-body">
+              <p class="card-text"><%= @product.description%></p>
               <span id="share"><i class="fa fa-share fa-2x"></i></span>
               <span id="approve"><i class="fa fa-star fa-2x"></i></span>
+              <h5 class="card-title"> <%= @product.user.first_name %> <%= @product.user.last_name %></h5>
+              <h6 class="card-subtitle mb-2 text-muted">@<%= @product.user.first_name %>_<%= @product.user.last_name %></h6>
             </div>
           </div>
-          <div class="row user-info align-items-end">
-            <div class="row">
-              <h5><%= @product.user.first_name %> <%= @product.user.last_name %></h5>
-            </div>
-            <div class="row">
-             <p>@<%= @product.user.first_name %>_<%= @product.user.last_name %></p>
-           </div>
-         </div>
+        </div>
       </div>
-      </div>
-    </div class="btn-success">
-    <a id="oneclick">Click Here</a>
     </div>
+    <div class="row mx-auto" id="mystuff">
+      <div class="col ">
+        <h5>What you give</h5>
+        <div class="row">
+
+          <h6>Choose from your objects:</h6>
+        </div>
+        <div class="row" id="my-objects">
+          <div class="col-4">
+            <label class="image-checkbox">
+              <img class="img-responsive" src="https://dummyimage.com/100x100/000/fff">
+              <input name="image[]" value="" type="checkbox">
+            </label>
+          </div>
+          <div class="col-4">
+            <label class="image-checkbox">
+              <img class="img-responsive" src="https://dummyimage.com/100x100/000/fff">
+              <input name="image[]" value="" type="checkbox">
+            </label>
+          </div>
+          <div class="col-4">
+            <label class="image-checkbox">
+              <img class="img-responsive" src="https://dummyimage.com/100x100/000/fff">
+              <input name="image[]" value="" type="checkbox">
+            </label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row" id="money-offer">
+      <div class="col">
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <button class="offer-btn btn btn-outline-secondary" type="button">Offer</button>
+          <button class="btn btn-outline-secondary" type="button">Request</button>
+        </div>
+        <label class="input-group-text" for="inputGroupSelect01">$</label>
+        <input type="number" class="form-control" placeholder="0.00" aria-label="" aria-describedby="basic-addon1">
+      </div>
+    </div>
+    </div>
+    <button type="button" id="oneclick" class="btn btn-primary btn-lg btn-block">Send offer</button>
+
+  </div>
 </div>
-</div>
+
+
