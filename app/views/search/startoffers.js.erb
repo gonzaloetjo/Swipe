@@ -1,0 +1,21 @@
+$("#startoffers").html("<%= escape_javascript(render partial: 'search/startoffers')%>").show();
+$("#close-offer").on("click",function(id){
+  $("#startoffers").hide();
+});
+$("#oneclick").on("click",function(id){
+  var product_id = "<%= @product.id %>";
+  var user_id = "<%= @user.id %>";
+/*  .ajax({
+      url: 'create',
+      data: {messages_attributes: {product_id: product_id, title: title}}
+      type: "POST",
+      success: function(data) {
+        alert("Successful");
+      },
+      failure: function() {
+        alert("Unsuccessful");
+      }
+    });*/
+  window.location.href = "/offers/chat/" + product_id;
+});
+

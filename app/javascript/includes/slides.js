@@ -1,6 +1,7 @@
 $(function(){
   var $activeSlide = $('#slides .slide:first-child');
 
+
   // $activeSlide.addClass("showing");
 
   $("#decline").on("click",function(){
@@ -26,6 +27,23 @@ $(function(){
 
     goToSlide('approve');
   });
+
+  $("#offer").on("click",function(){
+    var product_id = $activeSlide.data("id");
+    console.log(product_id);
+    // window.location.href = "/offers/create/" + product_id;
+    $.ajax({
+        headers: {
+          'X-CSRF-Token': $('meta[name="csrf-token"]').attr('content')
+      },
+      url: "get/startoffers/" + product_id,
+      method: "post",
+      dataType: "script"
+    });
+    //$("#offers").show();
+  });
+
+
 
 
   function goToSlide(action) {

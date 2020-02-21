@@ -2,6 +2,19 @@
 essential styles:
 these make the slideshow work
 */
+
+#conversation {
+  display: none;
+  width: 80%;
+  height: 80%;
+  position: absolute;
+  right: 20%;
+  top: 20px;
+  margin-bottom: 20px;
+  z-index: 1000;
+}
+
+
 .slides {
   margin:auto;
 

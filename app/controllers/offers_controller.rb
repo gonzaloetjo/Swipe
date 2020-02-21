@@ -1,48 +1,54 @@
 class OffersController < ApplicationController
-  def create
-    @product = Product.find(params[:product_id])
-    @offer = Offer.new
-    @offer.start_date = params[:offer][:start_date].split('to') [0]
-    if params[:offer][:start_date].split(' to ') [1].nil?
-    @offer.end_date = params[:offer][:start_date].split('to') [0]
-    else
-    @offer.end_date = params[:offer][:start_date].split(' to ') [1]
-    end
 
-    @offer.user = current_user
-    @offer.product = @product
+  def index
+    @offer = Offer.all
+  end
+
+  def create
+    @offer = Offer.new(offer_params)
+    @offer.user_id = current_user.id
+    @offer.messages.user_id = current_user.id
 
     if @offer.save
-      redirect_to offer_path(@offer), notice: 'Your offer has been made'
+      offer[:user_id] = current_user.id
+      flash[:success] = "New User created."
+      redirect_to '/offer/chatt' + product_id
+      logger.debug "saved"
+
     else
-      render 'products/show'
+      logger.debug "not saved"
+    end
+  end
+
+  def chat
+    @user = current_user
+    @products = Product.all
+    @product = Product.find(params[:id])
+    @offer = Offer.new(offer_params)
+    @message = @offer.messages.build
+    logger.debug(params[:id])
+    if @offer.save
+    logger.debug "saved"
+
+     redirect_to offer_path(@chat), notice: 'Your offer has been made'
+    logger.debug "path finished"
+    else
+      logger.debug "not saved"
+
+    #else
+    #  render 'search'
     end
   end
 
   def show
     @offer = Offer.find(params[:id])
-    @product = @offer.product
-    authorize @product
+    @product = @offer.new
   end
-
-def index
-  @offers = policy_scope(offer).all
-  @myoffers = current_user.offers
-end
-
-def edit
-  @offer = Offer.find(params[:id])
-end
-
-def destroy
-  @offer = Offer.find(params[:id])
-  @offer.destroy
-  redirect_to offers_path
-end
 
   private
 
+
   def offer_params
-    params.require(:offer).permit(:start_date, :end_date)
+    params.permit(:pruduct_id, messages_attributes: [:message_content, :user_id, :product_id])
   end
 end

@@ -17,11 +17,11 @@ Faker::Config.locale = :fr
 last_id_category = Category.maximum(:id).to_i
 puts last_id_category
 
+Offer.destroy_all
 Favorite.destroy_all
 Product.destroy_all
 Category.destroy_all
 Message.destroy_all
-Offer.destroy_all
 Rating.destroy_all
 User.destroy_all
 
@@ -170,7 +170,9 @@ pictures = ["https://images.unsplash.com/photo-1573516515928-92444ec46ce2?ixlib=
   c = Product.new(
     name: new_name_1,
     user_id: a.id,
-    category_id: new_id_1
+    category_id: new_id_1,
+    description: Faker::GreekPhilosophers.quote,
+    quantity_per_unit: rand(10..100)
     )
   c.images.attach(io: file, filename: "nes-#{index}.png", content_type: 'image/png')
 
