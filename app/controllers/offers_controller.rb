@@ -50,6 +50,6 @@ class OffersController < ApplicationController
 
 
   def offer_params
-    params.permit(:pruduct_id, messages_attributes: [:message_content, :user_id, :product_id])
+    params.permit(:utf8, :authenticity_token, :offer, :submit, :pruduct_id, messages_attributes: [:message_content, :user_id, :product_id])
   end
 end
