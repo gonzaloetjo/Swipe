@@ -1,0 +1,41 @@
+#chat{
+/* Chat containers */
+overflow-y:hidden;
+overflow-y: scroll;
+max-height:600px;
+
+.message-box {
+  border: 2px solid #dedede;
+  background-color: #f1f1f1;
+  border-radius: 20px 20px 0 20px;
+  padding: 5px 10px;
+  margin: 10px;
+  width:auto;
+  height:auto;
+  display:inline-block;
+   max-width: 80%;
+
+  .message-box-container {
+  margin: 20px 0;
+  float:right;
+
+  }
+
+.message-text {
+  float:right;
+  margin-bottom:10px;
+}
+
+/* Darker chat container */
+.darker {
+  border-color: #ccc;
+  background-color: #ddd;
+}
+
+
+}
+
+#offer_messages_attributes_0_message_content {
+  position:sticky;
+}
+}
