@@ -1,3 +1,8 @@
 <% @messages.each do |message| %>
-  <%= simple_format message.message_content %>
+<div class=" row message-box-container justify-content-end">
+  <div class="offset align-self-end message-box">
+  <%= simple_format message.message_content , class: 'message-text'%>
+  </div>
+  </div>
 <% end %>
+
