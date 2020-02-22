@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :offers
   has_many :favorites
   has_many :categories_users
+  has_many :messages
 
   has_one_attached :avatar
 
