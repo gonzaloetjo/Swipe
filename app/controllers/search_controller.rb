@@ -28,9 +28,7 @@ class SearchController < ApplicationController
     if @product.present?
       respond_to do |format|
 
-        format.js {
-          render "search/startoffers"
-        }
+        format.js { render "search/startoffers" }
 
       end
     end

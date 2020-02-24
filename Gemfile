@@ -10,9 +10,13 @@ gem 'rails', '5.2.4.1'
 gem 'redis'
 gem 'faker'
 gem 'bootstrap-multiselect_rails', '~> 0.9.4'
+#gem 'carrierwave', '~> 2.0'
+#gem 'fog-aws'
+gem 'figaro'
+
 gem "aws-sdk-s3", require: false
 gem 'jquery-rails'
-
+gem 'rack-cors'
 
 
 gem 'autoprefixer-rails'

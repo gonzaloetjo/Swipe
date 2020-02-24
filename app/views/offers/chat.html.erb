@@ -8,19 +8,18 @@
   </div>
   <div class="row">
     <div class="col-12 text-center">
-      <div id="new-chat">
-        <p>You started an offer with <span> <%= @product.user.first_name %> </span> </p>
-        <%= link_to image_tag(@product.images.first, width: "100px", height: "100px", class:"rounded-circle")%>
-        <P>Send a message</p>
+        <div id="new-chat">
+          <p>You started an offer with <span> <%= @product.user.first_name %> </span> </p>
+          <%= link_to image_tag(@product.images.first, width: "100px", height: "100px", class:"rounded-circle")%>
+          <P>Send a message</p>
         </div>
-        <div id="chat_messages">
-        </div>
-      </div>
+          <div id="chat_messages">
+          </div>
     </div>
-    <div class="row">
-      <div class="col-12 mt-5 bottom-bar">
+  </div>
+  <div class="row">
+    <div class="col-12 mt-5 bottom-bar">
         <%= render partial: "offers/new_chat" %>
-      </div>
     </div>
   </div>
 </div>

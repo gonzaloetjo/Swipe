@@ -51,7 +51,6 @@ class OffersController < ApplicationController
       @offer.save
     end
 
-
     @message = @offer.messages.build
   end
 

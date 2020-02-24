@@ -46,11 +46,6 @@ ActiveRecord::Schema.define(version: 2020_02_20_141613) do
     t.index ["mother_category_id"], name: "index_categories_on_mother_category_id"
   end
 
-  create_table "categories_users", id: false, force: :cascade do |t|
-    t.bigint "user_id", null: false
-    t.bigint "category_id", null: false
-  end
-
   create_table "favorites", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -121,6 +116,13 @@ ActiveRecord::Schema.define(version: 2020_02_20_141613) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "users_categories", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "category_id"
+    t.index ["category_id"], name: "index_users_categories_on_category_id"
+    t.index ["user_id"], name: "index_users_categories_on_user_id"
+  end
+
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "favorites", "products"
   add_foreign_key "favorites", "users"
@@ -131,4 +133,6 @@ ActiveRecord::Schema.define(version: 2020_02_20_141613) do
   add_foreign_key "offers", "users"
   add_foreign_key "products", "categories"
   add_foreign_key "products", "users"
+  add_foreign_key "users_categories", "categories"
+  add_foreign_key "users_categories", "users"
 end
