@@ -65,7 +65,7 @@ GEM
       aws-eventstream (~> 1.0, >= 1.0.2)
     bcrypt (3.1.13)
     bindex (0.8.1)
-    bootsnap (1.4.5)
+    bootsnap (1.4.6)
       msgpack (~> 1.0)
     bootstrap-multiselect_rails (0.9.5)
     builder (3.2.4)
@@ -88,6 +88,8 @@ GEM
     faker (2.10.2)
       i18n (>= 1.6, < 2)
     ffi (1.12.2)
+    figaro (1.1.1)
+      thor (~> 0.14)
     font-awesome-sass (5.6.1)
       sassc (>= 1.11)
     globalid (0.4.2)
@@ -133,6 +135,8 @@ GEM
     puma (4.3.1)
       nio4r (~> 2.0)
     rack (2.2.2)
+    rack-cors (1.1.1)
+      rack (>= 2.0.0)
     rack-proxy (0.6.5)
       rack
     rack-test (1.1.0)
@@ -191,7 +195,7 @@ GEM
       actionpack (>= 4.0)
       activesupport (>= 4.0)
       sprockets (>= 3.0.0)
-    thor (1.0.1)
+    thor (0.20.3)
     thread_safe (0.3.6)
     tilt (2.0.10)
     tzinfo (1.2.6)
@@ -225,6 +229,7 @@ DEPENDENCIES
   devise
   dotenv-rails
   faker
+  figaro
   font-awesome-sass (~> 5.6.1)
   jbuilder (~> 2.0)
   jquery-rails
@@ -233,6 +238,7 @@ DEPENDENCIES
   pry-byebug
   pry-rails
   puma
+  rack-cors
   rails (= 5.2.4.1)
   redis
   sassc-rails

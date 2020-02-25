@@ -12,6 +12,8 @@ gem 'faker'
 gem 'bootstrap-multiselect_rails', '~> 0.9.4'
 gem "aws-sdk-s3", require: false
 gem 'jquery-rails'
+gem 'figaro'
+gem 'rack-cors'
 
 
 
